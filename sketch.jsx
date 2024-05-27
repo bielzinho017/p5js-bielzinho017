@@ -1,23 +1,41 @@
-//variáveis da bolinha
-let xBolinha = 100;
-let yBolinha = 200;
-let diametro = 20;
-let raio = diametro / 2;
+let cor;
+let posicaoHorizontal; // x
+let posicaoVertical; // y
 
-//variáveis do oponente
-let xRaqueteOponente = 585;
-let yRaqueteOponente = 150;
+function setup() {
+  createCanvas(400, 400);
+   background(color(100,0,0));
+  cor = color(random(0,255), random(0,255), random(0,255));
+  posicaoHorizontal = 200;
+  posicaoVertical = 200;
+}
 
-//velocidade da bolinha
-let velocidadeXBolinha = 6;
-let velocidadeYBolinha = 6;
 
-//variáveis da raquete
-let xRaquete = 5;
-let yRaquete = 150;
-let raqueteComprimento = 10;
-let raqueteAltura = 90;
-
-//placar do jogo
-let meusPontos = 0;
-let pontosDoOponente = 0;
+function draw() {
+  
+  fill(cor);
+  circle(posicaoHorizontal,posicaoVertical,50);
+ 
+  
+  
+  if (mouseX < posicaoHorizontal){
+    posicaoHorizontal =  posicaoHorizontal - 1;
+  }
+  
+  if (mouseX > posicaoHorizontal){
+    posicaoHorizontal =  posicaoHorizontal + 1;
+  }
+  
+  if (mouseY < posicaoVertical){
+    posicaoVertical--;
+  }
+    
+  if (mouseY > posicaoVertical){
+    posicaoVertical++;
+  }
+  
+  if (mouseIsPressed){
+    cor = color(random(0,255), random(0,255), random(0,255), random(0,100));
+  }
+    
+}
